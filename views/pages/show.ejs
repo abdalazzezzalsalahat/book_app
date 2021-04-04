@@ -4,13 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>A Z O O Z Library</title>
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <div class="Titles">
-        <% searchResults.forEach( book => { %>
-            <h3><%= book.title %></h3>
+    <header class="header">
+        <h1>Books</h1>
+        <div class="drop_list"></div>
+    </header>
+    <div class="container">
+        <div class="books">
+            <% searchResults.forEach(book => { %>
+                <img src="<%= book.img %>" alt="<%= book.title%>">
+                <h1><%= book.title%></h1>
+                <h2><%= book.author%></h2>
+                <p><%= book.description%></p>
             <% }) %>
         </div>
-    </body>
+    </div>
+    <footer class="footer">
+        <!-- Icons should go here -->
+        <div class="icons">
+  
+        </div>
+    </footer>
+</body>
 </html>
