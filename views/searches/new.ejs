@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Z O O Z Library</title>
+    <link rel="stylesheet" href="../../public/styles/styles.css">
+</head>
+<body>
+  <div class="header">Search books</div>
+    <main>
+        <h4>Search by Title or Author</h4>
+        <form action="/searches" method="post">
+          <input class="search_box" type="text" name="search" placeholder="Enter a title or author" required>
+          <fieldset class="fieldset">
+            <label for="title" >
+              <input type="radio" name="search" value="title" required>
+              <span class="lbl">Title</span>
+            </label>
+          </fieldset>
+          <fieldset class="fieldset">
+            <label for="author">
+              <input type="radio" name="search" value="author" required>
+              <span class="lbl">Author</span>
+            </label>
+          </fieldset>
+          <button class="search_btn" type="submit">Search the Google Books API</button>
+        </form>
+      </main>
+</body>
+</html>
