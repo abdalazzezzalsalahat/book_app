@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Z O O Z Library</title>
-    <link rel="stylesheet" href="styles/styles.css">
+  <%- include('../layouts/head') %>
 </head>
 <body>
-    <header class="header"><h1>Google books</h1>
-        <div class="drop_list"></div>
-      </header>
-    <footer class="footer">
-        <!-- Icons should go here -->
-        <div class="icons">
-  
+  <%- include('../layouts/header') %>
+  <div class="container">
+    <h2>Book collection</h2>
+    <% books.forEach((items)=>{ %>
+        <div class="books">
+            <img class="cover_img" src="<%= items.image_url%>">
+            <h1 class="title"><%= items.title%></h1>
+            <h2 class="auther">written by: <%= items.author%></h2>
+            <form action="/books/<%= items.id%>" method="get">
+                <input class="btn details" type="submit" value="View Details">
+            </form>
         </div>
-      </footer>
+    <% })%>
+  </div>
+  <%- include('../layouts/footer') %>
 </body>
 </html>

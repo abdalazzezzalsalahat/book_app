@@ -25,7 +25,7 @@ week 3 level 301
 
 # Lab 11
 *****************************************************************************************************
-## Number and name of feature: Quickly loaded application
+## 1 Quickly loaded application
 
 ## Estimate of time needed to complete: 1:00
 
@@ -35,7 +35,7 @@ week 3 level 301
 
 ## Actual time needed to complete: 00:40
 *****************************************************************************************************
-## Number and name of feature: Google Books API search
+## 2 Google Books API search
 
 ## Estimate of time needed to complete: 1:00
 
@@ -46,7 +46,7 @@ week 3 level 301
 ## Actual time needed to complete: 00:40
 *****************************************************************************************************
 
-## Number and name of feature: Browse search results
+## 3 Browse search results
 
 ## Estimate of time needed to complete: 1:00
 
@@ -57,7 +57,7 @@ week 3 level 301
 ## Actual time needed to complete: 00:45
 *****************************************************************************************************
 
-## Number and name of feature: Eerror messages 
+## 4 Eerror messages 
 
 ## Estimate of time needed to complete: 00:30
 
@@ -68,7 +68,7 @@ week 3 level 301
 ## Actual time needed to complete: 00:20
 *****************************************************************************************************
 
-## Number and name of feature: Clean looking UI
+## 5 Clean looking UI
 
 ## Estimate of time needed to complete: 2:00
 
@@ -79,7 +79,7 @@ week 3 level 301
 ## Actual time needed to complete: 1:30
 *****************************************************************************************************
 
-## Number and name of feature: Home page
+## 6 Home page
 
 ## Estimate of time needed to complete: 00:30
 
@@ -97,17 +97,72 @@ week 3 level 301
 
 # Lab 12
 *****************************************************************************************************
-## Number and name of feature: 
+## 1 Saved books list
 
-## Estimate of time needed to complete: 
+## Estimate of time needed to complete: 1:30
 
-## Start time: 
+## Start time: 21:00
 
-## Finish time: 
+## Finish time: 22:30
 
-## Actual time needed to complete: 
+## Actual time needed to complete: 1:30
 *****************************************************************************************************
 
+## 2 Book details
+
+## Estimate of time needed to complete: 1:30
+
+## Start time: 23:00
+
+## Finish time: 00:00
+
+## Actual time needed to complete: 1:00
+*****************************************************************************************************
+
+## 3 Add new books to save search results
+
+## Estimate of time needed to complete: 1:15
+
+## Start time: 00:00
+
+## Finish time: 00:50
+
+## Actual time needed to complete: 00:50
+*****************************************************************************************************
+
+## 4 Consistent designed
+
+## Estimate of time needed to complete: 1:30
+
+## Start time: 00:50
+
+## Finish time: 02:00
+
+## Actual time needed to complete: 1:10
+*****************************************************************************************************
+
+## 5 Clean-looking UI
+
+## Estimate of time needed to complete: 01:00
+
+## Start time: 02:00
+
+## Finish time: 02:30
+
+## Actual time needed to complete: 00:30
+*****************************************************************************************************
+
+## 6 Further functionality
+
+## Estimate of time needed to complete: 1:30
+
+## Start time: 00:00
+
+## Finish time: 00:00
+
+## Actual time needed to complete: 00:00
+*****************************************************************************************************
+#### total time: 6:00 hours
 
 # Lab 13
 *****************************************************************************************************
