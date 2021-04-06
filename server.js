@@ -1,60 +1,64 @@
 'use strict';
-
-console.log('hello');
-const april_fool = 'April fool haa haa haaaa...';
-
+//#region variavles
 // Dependencies
 const express = require('express');
 const superagent = require('superagent');
 require('dotenv').config();
+const pg = require('pg');
 
 // Setup
 let app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5555;
+const DATABASE_URL = process.env.DATABASE_URL;
+const user = new pg.Client(DATABASE_URL);
 
+//#endregion
+
+//#region mids and routs
 // Middleware
+user.connect();
+user.on('error', error => console.error(error));
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static('./public'));
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: true}));
 
 // Templating
 app.set('view engine', 'ejs');
 
 // Routes
 app.get('/', handleHome);
-app.get('/hello', handleWelcome);
 app.get('/searches/new', handleForm);
 app.post('/searches', handleSearch);
-
+app.post('/books', handleSavingBooks);
+app.get('/books/:id', handleDetails);
 // Route not found
 app.get('*', handleError);
-
+//#endregion
 // Make sure that the port listens
 app.listen(PORT, ()=>{
     console.log(`the app is listening to => ${PORT}`);
 });
 
 // constructor
-function Book(info) {
+function Book(data) {
     const placeholderImage = 'https://i.imgur.com/J5LVHEL.jpg';
-    this.title = info.title || 'No title available';
-    this.author = info.author;
-    this.description = info.description;
-    this.img = placeholderImage;
-    console.log(info);
+    this.title = data.title || 'title is not available';
+    this.author = data.author || 'author is not available';
+    this.description = data.description || 'description is not available';
+    this.img = (data.imageLinks && data.imageLinks.thumbnail) ? data.imageLinks.thumbnail : placeholderImage;
+    this.ISBN = (data.indutryIdentifiers) ? data.indutryIdentifiers[0].identifier : 'ISBN is not available';
 }
 
-function handleWelcome (req, res) {
-    try {
-        res.status(200).send(`Oops, something didn't go wrong => ${april_fool}`);
-    } catch(error) {
-        res.status(500).send(`Oops, something went wrong => ${error}`);
-    }
-}
+// functions
 function handleHome(req, res) {
-    res.render('pages/index');
+    let sql = 'SELECT * FROM books;';
+    return user.query(sql)
+        .then(results => res.render('pages/index', {books: results.rows}))
+        .catch((error) => handleError(error, res));
 }
 function handleForm(req, res) {
-    res.render('searches/new');
+    res.render('pages/searches/new');
 }
 function handleSearch(req, res) {
     let url = 'https://www.googleapis.com/books/v1/volumes?q=';
@@ -62,11 +66,27 @@ function handleSearch(req, res) {
     if (req.body.search[1] === 'author') { url += `+inauthor:${req.body.search[0]}`;}
     superagent.get(url)
         .then(elemnt => elemnt.body.items.map(book => new Book(book.volumeInfo)))
-        .then(results => res.render('pages/show', { searchResults: results }))
-        .catch(error => {
-            handleError(req, res, error);
-        });
+        .then(results => res.render('pages/books/show', {book: results}))
+        .catch(error => handleError(error, res));
 }
-function handleError(req, res, error){
-    res.render('pages/error',{status:404, message:`Sorry some thing went wrong => ${error}`});
+function handleSavingBooks(req, res) {
+    let { title, author, ISBN, image_url, description} = req.body;
+    let sql = `INSERT INTO books (title, author, isbn, image_url, description)
+                VALUES ($1, $2, $3, $4, $5) RETURNING *;`;
+    let values = [title, author, ISBN, image_url, description];
+    return user.query(sql, values)
+        .then(results => res.redirect(`/books/${results.rows[0].id}`))
+        .catch((error) => handleError(error, res));
+}
+function handleDetails(req, res) {
+    let sql = `select * from books where id = $1;`;
+    let values = [req.params.id];
+    user.query(sql, values)
+        .then(results => {
+            console.log('single', results.rows[0]);
+            res.render('pages/books/details', {book: results.rows[0]}); })
+        .catch((err) => handleError(err, res));
+}
+function handleError(error, res){
+    res.render('pages/error',{status:404, message:`Sorry something went wrong => ${error}`});
 }

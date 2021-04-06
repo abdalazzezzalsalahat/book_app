@@ -1,0 +1,43 @@
+new3
+kskdnl
+\q
+\q
+\l
+create database city-tracker
+\l
+CREATE DATABASE city-tracker
+create database city_tracker
+\l
+create database city-tracker;
+create database city_tracker;
+\l
+\c city_tracker 
+create tabel azooz (
+id int not null ,
+name varchar(50) not null)
+select * from azooz
+;
+create table azooz(
+id int not null,
+name varchar(50))
+;
+select * from azooz;
+-f ./schema.sql
+\dt
+drop table azooz
+\dt
+pgstop
+exit
+\q
+\l
+\c city_tracker
+\dt
+drop table azooz
+;
+\dt
+\q
+\l
+\q
+\l
+\c book_app
+\s book_app
