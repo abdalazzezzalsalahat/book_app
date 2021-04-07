@@ -166,23 +166,34 @@ week 3 level 301
 
 # Lab 13
 *****************************************************************************************************
-## Number and name of feature: 
+## 1 Update book info
 
-## Estimate of time needed to complete: 
+## Estimate of time needed to complete: 1:00
 
-## Start time: 
+## Start time: 02:35
 
-## Finish time: 
+## Finish time: 03:20
 
-## Actual time needed to complete: 
+## Actual time needed to complete: 00:45
 *****************************************************************************************************
+## 2 Delete book from list
+
+## Estimate of time needed to complete: 1:00
+
+## Start time: 03:20
+
+## Finish time: 04:10
+
+## Actual time needed to complete: 00:30
+*****************************************************************************************************
+#### total time: 1:15 hours
 
 
 # Lab 14
 *****************************************************************************************************
-## Number and name of feature: 
+## 1 Normalizing database 
 
-## Estimate of time needed to complete: 
+## Estimate of time needed to complete: 1:00
 
 ## Start time: 
 

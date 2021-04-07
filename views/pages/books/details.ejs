@@ -1,9 +1,13 @@
 <div class="container">
     <div class="books details">
-        <img class="cover_img" src="<%= book.img %>" alt="<%= book.title %>">
-        <h1 class="title"><%= book.title %></h1>
-        <h2 class="auther">Written by: <%= book.author %></h2>
-        <h2 class="isbn">ISBN: <%= book.isbn %></h2>
-        <p class="discription"><%= book.description %></p>
+        <img class="cover_img" src="<%= books.img %>" alt="<%= books.title %>">
+        <h1 class="title"><%= books.title %></h1>
+        <h2 class="auther">Written by: <%= books.author %></h2>
+        <h2 class="isbn">ISBN: <%= books.isbn %></h2>
+        <p class="discription"><%= books.description %></p>
+        <button class="btn edit" id="edit_btn" type="submit">Update Details</button>
+        <form action="/books/%= books.id %>?_method=DELETE" method="post">
+            <button type="submit">Delete Details</button>
+        </form>
     </div>
 </div>
